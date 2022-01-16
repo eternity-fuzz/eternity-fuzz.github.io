@@ -6,7 +6,7 @@
   <link href="https://eternity-fuzz.github.io/atom.xml" rel="self"/>
   
   <link href="https://eternity-fuzz.github.io/"/>
-  <updated>2022-01-16T11:16:51.911Z</updated>
+  <updated>2022-01-16T11:22:55.140Z</updated>
   <id>https://eternity-fuzz.github.io/</id>
   
   <author>
@@ -20,8 +20,8 @@
     <title>Log4j2_rce复现</title>
     <link href="https://eternity-fuzz.github.io/posts/61fa.html"/>
     <id>https://eternity-fuzz.github.io/posts/61fa.html</id>
-    <published>2022-01-16T11:16:24.000Z</published>
-    <updated>2022-01-16T11:16:51.911Z</updated>
+    <published>2022-01-16T11:18:18.000Z</published>
+    <updated>2022-01-16T11:22:55.140Z</updated>
     
     
       
@@ -40,31 +40,6 @@
     <category term="漏洞复现" scheme="https://eternity-fuzz.github.io/tags/%E6%BC%8F%E6%B4%9E%E5%A4%8D%E7%8E%B0/"/>
     
     <category term="Apache" scheme="https://eternity-fuzz.github.io/tags/Apache/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Log4j2_rce复现</title>
-    <link href="https://eternity-fuzz.github.io/posts/61fa.html"/>
-    <id>https://eternity-fuzz.github.io/posts/61fa.html</id>
-    <published>2022-01-16T11:07:38.000Z</published>
-    <updated>2022-01-16T11:12:38.673Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h3 id=&quot;Apache-log4j2反弹shell&quot;&gt;&lt;a href=&quot;#Apache-log4j2反弹shell&quot; class=&quot;headerlink&quot;</summary>
-        
-      
-    
-    
-    
-    <category term="漏洞复现" scheme="https://eternity-fuzz.github.io/categories/%E6%BC%8F%E6%B4%9E%E5%A4%8D%E7%8E%B0/"/>
-    
-    
-    <category term="漏洞复现" scheme="https://eternity-fuzz.github.io/tags/%E6%BC%8F%E6%B4%9E%E5%A4%8D%E7%8E%B0/"/>
     
     <category term="中间件" scheme="https://eternity-fuzz.github.io/tags/%E4%B8%AD%E9%97%B4%E4%BB%B6/"/>
     
