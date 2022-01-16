@@ -6,7 +6,7 @@
   <link href="https://eternity-fuzz.github.io/atom.xml" rel="self"/>
   
   <link href="https://eternity-fuzz.github.io/"/>
-  <updated>2021-09-04T12:53:52.388Z</updated>
+  <updated>2022-01-16T10:40:28.347Z</updated>
   <id>https://eternity-fuzz.github.io/</id>
   
   <author>
@@ -17,11 +17,38 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>Log4j2_rce复现</title>
+    <link href="https://eternity-fuzz.github.io/posts/61fa.html"/>
+    <id>https://eternity-fuzz.github.io/posts/61fa.html</id>
+    <published>2022-01-16T10:36:01.000Z</published>
+    <updated>2022-01-16T10:40:28.347Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h3 id=&quot;Apache-log4j2反弹shell&quot;&gt;&lt;a href=&quot;#Apache-log4j2反弹shell&quot; class=&quot;headerlink&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="漏洞复现" scheme="https://eternity-fuzz.github.io/categories/%E6%BC%8F%E6%B4%9E%E5%A4%8D%E7%8E%B0/"/>
+    
+    
+    <category term="漏洞浮现" scheme="https://eternity-fuzz.github.io/tags/%E6%BC%8F%E6%B4%9E%E6%B5%AE%E7%8E%B0/"/>
+    
+    <category term="Apache" scheme="https://eternity-fuzz.github.io/tags/Apache/"/>
+    
+  </entry>
+  
+  <entry>
     <title>shiro 反序列化复现</title>
     <link href="https://eternity-fuzz.github.io/posts/af27.html"/>
     <id>https://eternity-fuzz.github.io/posts/af27.html</id>
     <published>2021-09-04T12:35:17.000Z</published>
-    <updated>2021-09-04T12:53:52.388Z</updated>
+    <updated>2022-01-16T10:38:04.096Z</updated>
     
     
       
