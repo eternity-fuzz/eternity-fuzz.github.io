@@ -6,7 +6,7 @@
   <link href="https://eternity-fuzz.github.io/atom.xml" rel="self"/>
   
   <link href="https://eternity-fuzz.github.io/"/>
-  <updated>2022-01-16T11:30:38.016Z</updated>
+  <updated>2022-01-16T11:31:14.196Z</updated>
   <id>https://eternity-fuzz.github.io/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="https://eternity-fuzz.github.io/posts/efed.html"/>
     <id>https://eternity-fuzz.github.io/posts/efed.html</id>
     <published>2022-01-16T11:28:02.000Z</published>
-    <updated>2022-01-16T11:30:38.016Z</updated>
+    <updated>2022-01-16T11:31:14.196Z</updated>
     
     
       
@@ -72,35 +72,6 @@
     <category term="Apache" scheme="https://eternity-fuzz.github.io/tags/Apache/"/>
     
     <category term="中间件" scheme="https://eternity-fuzz.github.io/tags/%E4%B8%AD%E9%97%B4%E4%BB%B6/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>shiro 反序列化复现</title>
-    <link href="https://eternity-fuzz.github.io/posts/af27.html"/>
-    <id>https://eternity-fuzz.github.io/posts/af27.html</id>
-    <published>2021-09-04T12:35:17.000Z</published>
-    <updated>2022-01-16T10:38:04.096Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;p&gt;靶场搭建&lt;/p&gt;
-&lt;pre class=&quot; language-sh&quot;&gt;&lt;code class=&quot;language-sh&quot;&gt;docker pull medicean/vulapps:s_shiro_1    #获取docker镜像
-systemctl restart</summary>
-        
-      
-    
-    
-    
-    <category term="漏洞复现" scheme="https://eternity-fuzz.github.io/categories/%E6%BC%8F%E6%B4%9E%E5%A4%8D%E7%8E%B0/"/>
-    
-    
-    <category term="漏洞复现" scheme="https://eternity-fuzz.github.io/tags/%E6%BC%8F%E6%B4%9E%E5%A4%8D%E7%8E%B0/"/>
-    
-    <category term="Web" scheme="https://eternity-fuzz.github.io/tags/Web/"/>
     
   </entry>
   
