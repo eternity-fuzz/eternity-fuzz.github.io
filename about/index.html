@@ -628,7 +628,7 @@ if (windowWidth > 768) {
                 type: 'pie',
                 radius: '50%',
                 color: ['#6772e5', '#ff9e0f', '#fa755a', '#3ecf8e', '#82d3f4', '#ab47bc', '#525f7f', '#f51c47', '#26A69A'],
-                data: [{"name":"渗透测试","value":1},{"name":"Linux","value":2},{"name":"漏洞复现","value":2}],
+                data: [{"name":"漏洞复现","value":2},{"name":"Linux","value":2},{"name":"渗透测试","value":1}],
                 itemStyle: {
                     emphasis: {
                         shadowBlur: 10,
@@ -652,7 +652,7 @@ if (windowWidth > 768) {
         xAxis: [
             {
                 type: 'category',
-                data: ["渗透测试","Linux","漏洞复现","Windows后门","菜鸡日常","XSS","Web","环境搭建","网页服务"]
+                data: ["漏洞复现","渗透测试","Linux","XSS","菜鸡日常","Web","Windows后门","环境搭建","网页服务"]
             }
         ],
         yAxis: [
@@ -783,8 +783,14 @@ if (windowWidth > 768) {
         <div class="tag-chips center-align">
             
             
-            <a href="/tags/Windows%E5%90%8E%E9%97%A8/">
-                <span class="chip center-align waves-effect waves-light chip-default">Windows后门</span>
+            <a href="/tags/%E6%BC%8F%E6%B4%9E%E5%A4%8D%E7%8E%B0/">
+                <span class="chip center-align waves-effect waves-light chip-default">漏洞复现</span>
+            </a>
+            
+            
+            
+            <a href="/tags/XSS/">
+                <span class="chip center-align waves-effect waves-light chip-default">XSS</span>
             </a>
             
             
@@ -807,20 +813,14 @@ if (windowWidth > 768) {
             
             
             
-            <a href="/tags/%E6%BC%8F%E6%B4%9E%E5%A4%8D%E7%8E%B0/">
-                <span class="chip center-align waves-effect waves-light chip-default">漏洞复现</span>
-            </a>
-            
-            
-            
-            <a href="/tags/XSS/">
-                <span class="chip center-align waves-effect waves-light chip-default">XSS</span>
-            </a>
-            
-            
-            
             <a href="/tags/Web/">
                 <span class="chip center-align waves-effect waves-light chip-default">Web</span>
+            </a>
+            
+            
+            
+            <a href="/tags/Windows%E5%90%8E%E9%97%A8/">
+                <span class="chip center-align waves-effect waves-light chip-default">Windows后门</span>
             </a>
             
             

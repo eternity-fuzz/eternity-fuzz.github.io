@@ -67,9 +67,9 @@ systemctl restart</summary>
     <category term="渗透测试" scheme="https://eternity-fuzz.github.io/categories/%E6%B8%97%E9%80%8F%E6%B5%8B%E8%AF%95/"/>
     
     
-    <category term="Windows后门" scheme="https://eternity-fuzz.github.io/tags/Windows%E5%90%8E%E9%97%A8/"/>
-    
     <category term="渗透测试" scheme="https://eternity-fuzz.github.io/tags/%E6%B8%97%E9%80%8F%E6%B5%8B%E8%AF%95/"/>
+    
+    <category term="Windows后门" scheme="https://eternity-fuzz.github.io/tags/Windows%E5%90%8E%E9%97%A8/"/>
     
   </entry>
   
@@ -123,11 +123,11 @@ systemctl restart</summary>
     <category term="漏洞复现" scheme="https://eternity-fuzz.github.io/categories/%E6%BC%8F%E6%B4%9E%E5%A4%8D%E7%8E%B0/"/>
     
     
-    <category term="渗透测试" scheme="https://eternity-fuzz.github.io/tags/%E6%B8%97%E9%80%8F%E6%B5%8B%E8%AF%95/"/>
-    
     <category term="漏洞复现" scheme="https://eternity-fuzz.github.io/tags/%E6%BC%8F%E6%B4%9E%E5%A4%8D%E7%8E%B0/"/>
     
     <category term="XSS" scheme="https://eternity-fuzz.github.io/tags/XSS/"/>
+    
+    <category term="渗透测试" scheme="https://eternity-fuzz.github.io/tags/%E6%B8%97%E9%80%8F%E6%B5%8B%E8%AF%95/"/>
     
   </entry>
   
