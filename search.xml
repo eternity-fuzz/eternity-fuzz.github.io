@@ -4,25 +4,6 @@
   
     
     <entry>
-      <title>test</title>
-      <link href="/posts/f82e.html"/>
-      <url>/posts/f82e.html</url>
-      
-        <content type="html"><![CDATA[<p>s</p><p>sda</p><p>sdas</p>]]></content>
-      
-      
-      
-        <tags>
-            
-            <tag> sdsa </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
       <title>Log4j2_rce复现</title>
       <link href="/posts/61fa.html"/>
       <url>/posts/61fa.html</url>
@@ -39,7 +20,7 @@
       
         <tags>
             
-            <tag> 漏洞浮现 </tag>
+            <tag> 漏洞复现 </tag>
             
             <tag> Apache </tag>
             
@@ -93,9 +74,9 @@
       
         <tags>
             
-            <tag> Windows后门 </tag>
-            
             <tag> 渗透测试 </tag>
+            
+            <tag> Windows权限维持 </tag>
             
         </tags>
       
